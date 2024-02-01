@@ -35,20 +35,16 @@ public class SwagLabTest implements IAbstractTest {
 
     @Test
     public void addToCartTest() {
-        SoftAssert softAssert = new SoftAssert();
-
         ProductsScreenBase productsScreen = initPage(getDriver(), ProductsScreenBase.class);
         ProductScreenBase productScreen = productsScreen.openProductPage(productName);
 
-        softAssert.assertTrue(productScreen.isScreenOpened(), "Product screen should be opened !");
-        softAssert.assertTrue(productScreen.isProductPresent(productName), "Product name should be present on page !");
+        Assert.assertTrue(productScreen.isScreenOpened(), "Product screen should be opened !");
+        Assert.assertTrue(productScreen.isProductPresent(productName), "Product name should be present on page !");
 
         productScreen.clickAddToCartButton();
         CartScreenBase cartScreen = initPage(MainMenuBase.class).openCartPage();
 
-        softAssert.assertTrue(cartScreen.isScreenOpened(), "Cart screen should be opened !");
-        softAssert.assertTrue(cartScreen.isProductPresent(productName), "Product should be present in cart !");
-
-        softAssert.assertAll();
+        Assert.assertTrue(cartScreen.isScreenOpened(), "Cart screen should be opened !");
+        Assert.assertTrue(cartScreen.isProductPresent(productName), "Product should be present in cart !");
     }
 }
