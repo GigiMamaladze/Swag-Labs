@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Swag Labs - Mobile application test" verbose="1" parallel="methods">
+
+    <test name="Mobile test">
+        <classes>
+            <class name="com.solvd.carina.demo.SwagLabTest"/>
+        </classes>
+    </test>
+
+</suite>
