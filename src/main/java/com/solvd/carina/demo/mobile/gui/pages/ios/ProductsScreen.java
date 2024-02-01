@@ -13,7 +13,7 @@ public class ProductsScreen extends ProductsScreenBase {
     @ExtendedFindBy(iosPredicate = "label == 'Products'")
     private ExtendedWebElement screenTitle;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND label == 'Sauce Lab Back Packs'$][-1]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[$type == 'XCUIElementTypeStaticText' AND label == '%s'$][-1]")
     private ExtendedWebElement productItem;
 
     public ProductsScreen(WebDriver driver) {

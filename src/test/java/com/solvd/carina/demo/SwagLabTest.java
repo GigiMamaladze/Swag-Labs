@@ -8,6 +8,7 @@ import com.solvd.carina.demo.mobile.gui.pages.common.ProductsScreenBase;
 import com.solvd.carina.demo.mobile.gui.pages.common.components.MainMenuBase;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.utils.R;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -15,25 +16,21 @@ public class SwagLabTest implements IAbstractTest {
 
     private final String productName = "Sauce Lab Back Packs";
 
-
     @Test
     public void loginTest() {
-        SoftAssert softAssert = new SoftAssert();
         ProductsScreenBase productsScreen = initPage(getDriver(), ProductsScreenBase.class);
         LoginBaseScreen loginScreen = initPage(getDriver(), MainMenuBase.class)
                 .getNavigationMenu()
                 .openLogInScreen();
 
-        softAssert.assertTrue(loginScreen.isScreenOpened(), "Login screen should be not opened !");
+        Assert.assertTrue(loginScreen.isScreenOpened(), "Login screen should be not opened !");
 
         loginScreen.typeUserName(R.TESTDATA.getDecrypted(ConfigConstant.SWAG_LAB_USERNAME));
         loginScreen.typePassword(R.TESTDATA.getDecrypted(ConfigConstant.SWAG_LAB_PASSWORD));
         loginScreen.clickLoginButton();
 
-        softAssert.assertTrue(productsScreen.isScreenOpened(),
+        Assert.assertTrue(productsScreen.isScreenOpened(),
                 "User should be logged in ! (product screen should be opened)");
-
-        softAssert.assertAll();
     }
 
     @Test
